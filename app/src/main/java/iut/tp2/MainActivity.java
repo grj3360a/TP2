@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                ((TextView)findViewById(R.id.result)).setText("");
+                return true;
+            }
+        };
+
+        ((EditText) findViewById(R.id.editText1)).setOnEditorActionListener(listener);
+        ((EditText) findViewById(R.id.editText2)).setOnEditorActionListener(listener);
     }
 
     public void onClick(View v){
@@ -30,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         float v2 = Integer.parseInt(op2.toString());
         float resultat = 0;
 
-        switch(v.getId()){
+
+        RadioGroup rg = findViewById(R.id.radioGroup);
+        switch(rg.getCheckedRadioButtonId()){
             case R.id.addition:
                 resultat = v1 + v2;
                 break;
