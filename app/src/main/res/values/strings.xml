@@ -2,5 +2,5 @@
     <string name="app_name">TP2</string>
     <string name="textPrincipal">Titre de ma fenêtre</string>
     <string name="textAuMilieu">...</string>
-    <string name="laClickasse">Cliqué</string>
+    <string name="laClickasse">Click#%o</string>
 </resources>

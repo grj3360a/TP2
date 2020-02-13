@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int compteur = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View v){
+        compteur++;
         TextView textDuMilieu = findViewById(R.id.leTextDuMilieu);
-        textDuMilieu.setText(getString(R.string.laClickasse));
-        Toast.makeText(getApplicationContext(), textDuMilieu.getText(), Toast.LENGTH_SHORT).show();
+        textDuMilieu.setText(getString(R.string.laClickasse, compteur));
     }
 }
