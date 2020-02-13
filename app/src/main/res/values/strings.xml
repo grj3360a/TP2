@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">TP2</string>
-    <string name="textPrincipal">Titre de ma fenêtre</string>
-    <string name="textAuMilieu">...</string>
-    <string name="laClickasse">Click#%o</string>
+    <string name="textPrincipal">Calculatrice v0</string>
+    <string name="hint">Opérande</string>
+    <string name="result">Résultat = %f</string>
+    <string name="dividedByZero">Division par zéro</string>
+    <string name="notSpecified">Une des deux valeurs non spécifiée</string>
 </resources>

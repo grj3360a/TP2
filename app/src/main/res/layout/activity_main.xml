@@ -7,63 +7,92 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/textPrincipal"
-        android:textColor="@color/colorText"
-        android:textSize="@dimen/textPrincipal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/leTextDuMilieu"
+        android:id="@+id/titreFenetre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textAuMilieu"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/textPrincipal"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="@string/hint"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/titreFenetre"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/titreFenetre"
+        app:layout_constraintTop_toBottomOf="@+id/titreFenetre" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="@string/hint"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editText1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText1"
+        app:layout_constraintTop_toBottomOf="@+id/editText1" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/editText2">
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/addition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@string/onClick"
-            android:text="1" />
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="+" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/substract"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@string/onClick"
-            android:text="2" />
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="-" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/multiply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@string/onClick"
-            android:text="3" />
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="*" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/divide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@string/onClick"
-            android:text="4" />
+            android:layout_weight="1"
+            android:onClick="onClick"
+            android:text="/" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
