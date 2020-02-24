@@ -93,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:enabled="false"
         android:onClick="onClick"
         android:text="@string/calc"
         app:layout_constraintEnd_toEndOf="@+id/editText2"

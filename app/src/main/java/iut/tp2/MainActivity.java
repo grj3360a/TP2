@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -19,16 +20,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
+        final EditText editText1 = ((EditText) findViewById(R.id.editText1));
+        final EditText editText2 = ((EditText) findViewById(R.id.editText2));
+
+        TextWatcher watson = new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override public void afterTextChanged(Editable editable) {}
+
             @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                ((TextView)findViewById(R.id.result)).setText("");
-                return true;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                ((TextView)findViewById(R.id.result)).setText(getString(R.string.result, ""));
+
+                findViewById(R.id.calculer).setEnabled(editText1.getText().length() > 0 && editText2.getText().length() > 0);
             }
         };
 
-        ((EditText) findViewById(R.id.editText1)).setOnEditorActionListener(listener);
-        ((EditText) findViewById(R.id.editText2)).setOnEditorActionListener(listener);
+        editText1.addTextChangedListener(watson);
+        editText2.addTextChangedListener(watson);
     }
 
     public void onClick(View v){
@@ -41,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         float v1 = Integer.parseInt(op1.toString());
         float v2 = Integer.parseInt(op2.toString());
-        float resultat = 0;
+        Float resultat = 0F;
 
 
         RadioGroup rg = findViewById(R.id.radioGroup);
@@ -70,6 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView result = findViewById(R.id.result);
-        result.setText(getString(R.string.result, resultat));
+        result.setText(getString(R.string.result, resultat.toString()));
     }
 }

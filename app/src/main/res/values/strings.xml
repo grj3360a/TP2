@@ -2,7 +2,7 @@
     <string name="app_name">TP2</string>
     <string name="textPrincipal">Calculatrice v0</string>
     <string name="hint">Opérande</string>
-    <string name="result">Résultat = %f</string>
+    <string name="result">Résultat = %s</string>
     <string name="dividedByZero">Division par zéro</string>
     <string name="notSpecified">Une des deux valeurs non spécifiée</string>
     <string name="calc">Calculer</string>
